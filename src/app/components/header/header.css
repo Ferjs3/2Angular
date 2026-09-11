@@ -1,0 +1,25 @@
+nav {
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    height: 100%;
+}
+#logo{
+    height: 90%;
+    width: auto;
+    color: white;
+}
+.opc{
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-size: 1em;
+}
+.opc:hover{
+    transform: scale(1.11);
+}

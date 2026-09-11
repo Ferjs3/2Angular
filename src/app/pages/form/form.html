@@ -1,0 +1,51 @@
+<div class="container">
+
+    <form [formGroup]="formulario" (submit)="verSubmit()">
+        <h1>Formulario</h1>
+        <fieldset>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" formControlName = "nameF">
+            @if (name.hasError("required") && name.touched){
+                <p class="error">Se requiere llenar el nombre</p>
+            }
+        </fieldset>
+
+        <fieldset>
+            <label for="lastname">Apellido</label>
+            <input type="text" id="lastname" formControlName = "lastnameF">
+            @if (lastname.hasError("required") && lastname.touched){
+                <p class="error">Se requiere llenar el apellido</p>
+            }
+        </fieldset>
+
+        <fieldset>
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" formControlName = "dniF">
+            @if (dni.hasError("required") && dni.touched) {
+                <p class="error">Se requiere llenar el DNI</p>
+            }
+            @else if (dni.hasError("minlength") && dni.touched) {
+                <p class="error">No puede tener menos de 7 caracteres</p>
+            }
+            @else if (dni.hasError("maxlength") && dni.touched) {
+                <p class="error">No puede tener mas de 8 caracteres</p>
+            }
+            @else if (dni.hasError("pattern") && dni.touched) {
+                <p class="error">El DNI debe tener solamente numeros</p>
+            }
+        </fieldset>
+
+        <fieldset>
+            <label for="email">Email</label>
+            <input type="email" name="" id="email" formControlName = "emailF">
+            @if (email.hasError("required") && email.touched) {
+                <p class="error">Se requiere llenar el email</p>
+            }
+            @else if (email.hasError("email") && email.touched) {
+                <p class="error">Formato no valido como email</p>
+            }
+        </fieldset>
+
+        <button [disabled]="formulario.invalid">Enviar</button>
+    </form>
+</div>
